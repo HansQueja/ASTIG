@@ -7,7 +7,6 @@ class University(models.Model):
     def __str__(self):
         return self.name
 
-
 class Program(models.Model):
     name = models.CharField(max_length=128)
     college = models.CharField(max_length=128)
@@ -19,4 +18,3 @@ class Program(models.Model):
 class Eligibility(models.Model):
     university = models.ForeignKey(University, on_delete=models.CASCADE)
     program = models.ForeignKey(Program, on_delete=models.CASCADE)
-    eligibility_date = models.DateField()
