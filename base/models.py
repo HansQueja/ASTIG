@@ -9,7 +9,6 @@ class University(models.Model):
 
 class Program(models.Model):
     name = models.CharField(max_length=128)
-    college = models.CharField(max_length=128)
     university = models.ManyToManyField(University, through="Eligibility")
 
     def __str__(self):
@@ -18,3 +17,4 @@ class Program(models.Model):
 class Eligibility(models.Model):
     university = models.ForeignKey(University, on_delete=models.CASCADE)
     program = models.ForeignKey(Program, on_delete=models.CASCADE)
+    college = models.CharField(max_length=128)
